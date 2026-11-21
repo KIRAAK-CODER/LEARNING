@@ -61,6 +61,13 @@
   .plan ul { list-style: none; margin: 20px 0 24px; color: #bbb; }
   .plan li { padding: 6px 0; border-bottom: 1px solid #262626; }
 
+  .sample-label { text-align: center; color: #888; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px; margin: -24px 0 24px; }
+  .reviews-grid { max-width: 1000px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+  .review { background: #1c1c1c; border: 2px solid #2a2a2a; border-radius: 12px; padding: 28px 24px; }
+  .review .stars { color: #ff4d2e; letter-spacing: 2px; margin-bottom: 12px; }
+  .review p { color: #bbb; font-style: italic; margin-bottom: 16px; }
+  .review .who { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
   .bmi-card { max-width: 520px; margin: auto; background: #1c1c1c; border: 2px solid #2a2a2a; border-radius: 12px; padding: 32px 24px; }
   .bmi-card label { display: block; margin-bottom: 6px; color: #bbb; font-weight: 600; }
   .bmi-card input { width: 100%; padding: 12px 14px; margin-bottom: 18px; background: #111; color: #eee;
@@ -103,6 +110,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#plans">Plans</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#bmi">BMI</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -161,6 +169,28 @@
       <div class="price">&#8377;7,999<small>/year</small></div>
       <ul><li>Full gym access</li><li>Personal trainer sessions</li><li>Best value &ndash; save 33%</li></ul>
       <a href="#contact" class="btn">Join Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2>Member <span>Reviews</span></h2>
+  <p class="sample-label">Sample reviews</p>
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>&ldquo;The trainers are supportive and the equipment is always in great shape. I feel stronger every week.&rdquo;</p>
+      <div class="who">Member 1</div>
+    </div>
+    <div class="review">
+      <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>&ldquo;24/7 access fits my schedule perfectly. The group classes keep me motivated.&rdquo;</p>
+      <div class="who">Member 2</div>
+    </div>
+    <div class="review">
+      <div class="stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <p>&ldquo;Great value for the yearly plan. The diet consultation really helped me with my goals.&rdquo;</p>
+      <div class="who">Member 3</div>
     </div>
   </div>
 </section>
