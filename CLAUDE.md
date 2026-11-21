@@ -27,6 +27,7 @@ A single-page gym landing page ("IronForge Gym" — a demo/placeholder brand). T
 3. Koi bhi fake ya placeholder data (address, phone, email) mat daalo. Info nahi pata to mujhse pucho.
 4. Kabhi bhi secret key ya password code mein mat likho.
 5. Har link aur button kaam karna chahiye.
+6. Kisi bhi library ya framework ka code likhne se pehle Context7 se latest docs check karo.
 
 ## Git
 
