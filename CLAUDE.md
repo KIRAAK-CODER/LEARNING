@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-A single-page gym landing page ("IronForge Gym" — a demo/placeholder brand). The whole site is one static file, `index.html`, with inline `<style>` and no JavaScript, build step, package manager, linter, or tests. To run it, open `index.html` in a browser.
+A single-page gym landing page ("IronForge Gym" — a demo/placeholder brand). The whole site is one static file, `index.html`, with inline `<style>` and one small inline `<script>` (only for the BMI calculator), and no build step, package manager, linter, or tests. To run it, open `index.html` in a browser.
 
 ## Structure of `index.html`
 
-- CSS lives in one `<style>` block; sections are: nav, hero, about, gallery, contact bar, plans, WhatsApp button, footer, then a single `@media (max-width: 720px)` block for mobile overrides. New styles that need mobile behavior must be added to that media block.
-- Page sections are anchored by `id` (`about`, `gallery`, `plans`, `contact`) and the fixed nav links to them. `section` has `scroll-margin-top: 70px` so the fixed navbar doesn't cover headings — keep this when adding sections.
+- CSS lives in one `<style>` block; sections are: nav, hero, about, gallery, contact bar, plans, BMI calculator, WhatsApp button, footer, then a single `@media (max-width: 720px)` block for mobile overrides. New styles that need mobile behavior must be added to that media block.
+- Page sections are anchored by `id` (`about`, `gallery`, `plans`, `bmi`, `contact`) and the fixed nav links to them. `section` has `scroll-margin-top: 70px` so the fixed navbar doesn't cover headings — keep this when adding sections.
 - Images are hotlinked from Unsplash (internet required); there is no local `images/` folder.
 - The accent color `#ff4d2e` is hardcoded throughout (no CSS variables).
 

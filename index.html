@@ -61,6 +61,21 @@
   .plan ul { list-style: none; margin: 20px 0 24px; color: #bbb; }
   .plan li { padding: 6px 0; border-bottom: 1px solid #262626; }
 
+  .bmi-card { max-width: 520px; margin: auto; background: #1c1c1c; border: 2px solid #2a2a2a; border-radius: 12px; padding: 32px 24px; }
+  .bmi-card label { display: block; margin-bottom: 6px; color: #bbb; font-weight: 600; }
+  .bmi-card input { width: 100%; padding: 12px 14px; margin-bottom: 18px; background: #111; color: #eee;
+                    border: 2px solid #2a2a2a; border-radius: 6px; font: inherit; }
+  .bmi-card input:focus { outline: none; border-color: #ff4d2e; }
+  .bmi-card .btn { width: 100%; border: 0; cursor: pointer; font: inherit; font-weight: 700; text-transform: uppercase; }
+  .bmi-result { text-align: center; margin-top: 20px; min-height: 1.6em; }
+  .bmi-result .bmi-value { display: block; font-size: 2.6rem; font-weight: 800; color: #ff4d2e; }
+  .bmi-result .bmi-cat { display: block; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; }
+  .bmi-result .underweight { color: #4da6ff; }
+  .bmi-result .normal { color: #3ddc84; }
+  .bmi-result .overweight { color: #ffb020; }
+  .bmi-result .obese { color: #ff4d2e; }
+  .bmi-result .bmi-error { color: #ff6b6b; }
+
   .wa-wrap { position: fixed; right: 22px; bottom: 22px; z-index: 20; display: flex; align-items: center; gap: 10px; }
   .wa-label { background: #fff; color: #111; padding: 8px 14px; border-radius: 20px; font-size: .85rem; font-weight: 700;
               box-shadow: 0 4px 12px rgba(0,0,0,.4); }
@@ -88,6 +103,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#plans">Plans</a></li>
+    <li><a href="#bmi">BMI</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -149,6 +165,18 @@
   </div>
 </section>
 
+<section id="bmi">
+  <h2>BMI <span>Calculator</span></h2>
+  <form class="bmi-card" id="bmi-form" novalidate>
+    <label for="bmi-weight">Weight (kg)</label>
+    <input type="number" id="bmi-weight" inputmode="decimal" step="any" placeholder="e.g. 70" required>
+    <label for="bmi-height">Height (cm)</label>
+    <input type="number" id="bmi-height" inputmode="decimal" step="any" placeholder="e.g. 175" required>
+    <button type="submit" class="btn">Calculate BMI</button>
+    <div class="bmi-result" id="bmi-result" aria-live="polite"></div>
+  </form>
+</section>
+
 <section id="contact">
   <div class="contact">
     <h2>Contact <span>Us</span></h2>
@@ -170,6 +198,40 @@
 </div>
 
 <footer>&copy; 2026 IronForge Gym. All rights reserved. | Demo Website | Contact: <a href="tel:+919247868686">9247868686</a></footer>
+
+<script>
+  document.getElementById('bmi-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var kg = parseFloat(document.getElementById('bmi-weight').value);
+    var cm = parseFloat(document.getElementById('bmi-height').value);
+    var out = document.getElementById('bmi-result');
+    out.textContent = '';
+
+    if (!(kg >= 20 && kg <= 300) || !(cm >= 50 && cm <= 250)) {
+      var err = document.createElement('span');
+      err.className = 'bmi-error';
+      err.textContent = 'Please enter weight between 20-300 kg and height between 50-250 cm.';
+      out.appendChild(err);
+      return;
+    }
+
+    var bmi = kg / Math.pow(cm / 100, 2);
+    var cat, cls;
+    if (bmi < 18.5) { cat = 'Underweight'; cls = 'underweight'; }
+    else if (bmi < 25) { cat = 'Normal'; cls = 'normal'; }
+    else if (bmi < 30) { cat = 'Overweight'; cls = 'overweight'; }
+    else { cat = 'Obese'; cls = 'obese'; }
+
+    var val = document.createElement('span');
+    val.className = 'bmi-value';
+    val.textContent = bmi.toFixed(1);
+    var label = document.createElement('span');
+    label.className = 'bmi-cat ' + cls;
+    label.textContent = cat;
+    out.appendChild(val);
+    out.appendChild(label);
+  });
+</script>
 
 </body>
 </html>
